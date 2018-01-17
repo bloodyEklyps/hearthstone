@@ -6,10 +6,14 @@ import game.Player;
 
 public class Metamorphose extends Spell{
 
-	public Metamorphose() {
+	private Metamorphose() {
 		super("Métamorphose", 4, Const.Heroes.MAGE);
 	}
 
+	public static Spell createMetamorphose(){
+		return new Metamorphose();
+	}
+	
 	@Override
 	public boolean cast(Minion target, Player caster) {
 		target.setDamage(1);

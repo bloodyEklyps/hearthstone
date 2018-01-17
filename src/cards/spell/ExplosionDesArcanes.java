@@ -7,8 +7,12 @@ import game.Player;
 
 public class ExplosionDesArcanes extends Spell{
 
-	public ExplosionDesArcanes() {
+	private ExplosionDesArcanes() {
 		super("Explosion des arcanes", 2, Const.Heroes.MAGE);
+	}
+	
+	public static Spell createExplosionDesArcanes(){
+		return new ExplosionDesArcanes();
 	}
 
 	@Override

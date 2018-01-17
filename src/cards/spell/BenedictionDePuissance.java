@@ -6,8 +6,12 @@ import game.Player;
 
 public class BenedictionDePuissance extends Spell{
 
-	public BenedictionDePuissance(){
+	private BenedictionDePuissance(){
 		super("Bénédiction de puissance", 1, Const.Heroes.PALADIN);
+	}
+	
+	public static Spell createBenedictionDePuissance(){
+		return new BenedictionDePuissance();
 	}
 
 	@Override

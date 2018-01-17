@@ -2,7 +2,12 @@ package cards.minion;
 
 public class YetiNoroit extends Minion {
 
-	public YetiNoroit() {
+	private YetiNoroit() {
 		super("Yéti noroit", 4, null, 4, 5);
 	}
+	
+	public static Minion createYetiNoroit(){
+		return new YetiNoroit();
+	}
+
 }

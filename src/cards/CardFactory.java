@@ -13,15 +13,15 @@ public class CardFactory {
 	
 	static {
 		//minions
-		map.put("SanglierBrocheroc", new SanglierBrocheroc());
-		map.put("ChevaucheurDeLoup", new ChargeMinion(new ChevaucheurDeLoup()));
-		map.put("SoldatDuCompteDeLOr", new TauntMinion(new SoldatDuCompteDeLOr()));
-		map.put("ChefDeRaid", new ChefDeRaid());
-		map.put("YetiNoroit", new YetiNoroit());
+		map.put("SanglierBrocheroc", SanglierBrocheroc.createSanglierBrocheroc());
+		map.put("ChevaucheurDeLoup", ChevaucheurDeLoup.createChevaucheurDeLoup());
+		map.put("SoldatDuCompteDeLOr", SoldatDuCompteDeLOr.createSoldatDuCompteDeLOr());
+		map.put("ChefDeRaid", ChefDeRaid.createChefDeRaid());
+		map.put("YetiNoroit", YetiNoroit.createYetiNoroit());
 		
 		
 		//spells
-		map.put("BenedictionDePuissance", new BenedictionDePuissance());
+		map.put("BenedictionDePuissance", BenedictionDePuissance.createBenedictionDePuissance());
 		
 		/*TODO complete with other cards*/
 	}

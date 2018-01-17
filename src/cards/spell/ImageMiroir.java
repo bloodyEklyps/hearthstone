@@ -6,9 +6,13 @@ import game.Player;
 
 public class ImageMiroir extends Spell{
 
-	public ImageMiroir() {
+	private ImageMiroir() {
 		super("Image miroir", 1, Const.Heroes.MAGE);
 		// TODO Auto-generated constructor stub
+	}
+	
+	public static Spell createImageMiroir(){
+		return new ImageMiroir();
 	}
 
 	@Override
