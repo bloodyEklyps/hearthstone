@@ -1,8 +1,9 @@
 package cards.spell;
 
 import cards.minion.Minion;
+import game.Board;
 import game.Const;
-import game.Const.Heroes;
+import game.Game;
 import game.Player;
 
 public class ExplosionDesArcanes extends Spell{
@@ -17,10 +18,9 @@ public class ExplosionDesArcanes extends Spell{
 
 	@Override
 	public boolean cast(Minion target, Player caster) {
-		--
-		/*TODO*/
-		//get board, or pass it in params
-		return false;
+		Board ennemyBoard = Game.getEnnemy(caster).getBoard();
+		ennemyBoard.aoe(1);
+		return true;
 	}
 
 }

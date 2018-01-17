@@ -23,6 +23,12 @@ public class Board {
 		}
 	}
 	
+	public void aoe(int damage){
+		for (Minion m : troops){
+			m.setCurrentHealth(m.getCurrentHealth()-damage);
+		}
+	}
+	
 	public void destroy(Minion minion){
 		troops.remove(troops.indexOf(minion));
 	}
