@@ -30,6 +30,8 @@ public class Game {
 	
 	public void play(int turn){
 		/*TODO*/
+		player1.play(turn);
+		player2.play(turn);
 	}
 	
 	/**

@@ -6,5 +6,17 @@ public class Const {
 		  MAGE,
 		  PALADIN,
 		  WARRIOR;
-		}
+	}
+	
+	public static enum Targets {
+		HEROS,
+		MINIONS,
+		CHARACTERS;
+	}
+	
+	public static enum Side {
+		ENEMIES,
+		ALLIES,
+		ALL;
+	}
 }

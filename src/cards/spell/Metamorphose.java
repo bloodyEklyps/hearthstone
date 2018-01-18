@@ -3,6 +3,8 @@ package cards.spell;
 import cards.minion.Minion;
 import game.Const;
 import game.Player;
+import game.Targetable;
+import game.Utils;
 
 public class Metamorphose extends Spell{
 
@@ -15,11 +17,18 @@ public class Metamorphose extends Spell{
 	}
 	
 	@Override
-	public boolean cast(Minion target, Player caster) {
-		target.setDamage(1);
-		target.setCurrentHealth(1);
-		target.setHealthMax(1);
-		return true;
+	public boolean cast(Player caster) {
+		Targetable target = Utils.selectTarget(caster, Const.Targets.MINIONS, Const.Side.ALL);
+		if(target.getClass() != Minion.class){
+			return false;
+		} else {
+			Minion m = ((Minion)target);
+			m.setDamage(1);
+			m.setCurrentHealth(1);
+			m.setHealthMax(1);
+			return true;
+		}
+
 	}
 
 }

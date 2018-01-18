@@ -3,6 +3,8 @@ package cards.spell;
 import cards.minion.Minion;
 import game.Const;
 import game.Player;
+import game.Targetable;
+import game.Utils;
 
 public class BenedictionDePuissance extends Spell{
 
@@ -15,8 +17,14 @@ public class BenedictionDePuissance extends Spell{
 	}
 
 	@Override
-	public boolean cast(Minion target, Player caster) {
-		target.setDamage(target.getDamage()+3);
-		return true;
+	public boolean cast(Player caster) {
+		Targetable target = Utils.selectTarget(caster, Const.Targets.MINIONS, Const.Side.ALL);
+		if(target.getClass() != Minion.class){
+			return false;
+		} else {
+			Minion m = ((Minion)target);
+			m.setDamage(m.getDamage()+3);
+			return true;
+		}
 	}
 }

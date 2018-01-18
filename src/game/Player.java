@@ -10,18 +10,20 @@ public class Player {
 	private ArrayList<Card> hand;
 	private Board board;
 	private String name;
+	private int mana;
 	
 	public Player(String name, Hero hero) {
 		super();
 		this.hand = new ArrayList<Card>();
 		this.board = new Board(hero);
 		this.name = name;
+		this.mana = 1;
 	}
 	
-	public void jouer(int mana){}
+	public void play(int turn){}
 	
 	//draw random card
-	public void piocher(){}
+	public void draw(){}
 
 	
 	/**
@@ -65,4 +67,20 @@ public class Player {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	/**
+	 * @return the mana
+	 */
+	public int getMana() {
+		return mana;
+	}
+
+	/**
+	 * @param mana the mana to set
+	 */
+	public void setMana(int mana) {
+		this.mana = mana;
+	}
+	
+	
 }
