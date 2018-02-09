@@ -32,6 +32,7 @@ public class Game {
 		/*TODO*/
 		player1.play(turn);
 		player2.play(turn);
+		turn++;
 	}
 	
 	/**

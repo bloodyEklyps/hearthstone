@@ -11,6 +11,7 @@ public class Player {
 	private Board board;
 	private String name;
 	private int mana;
+	private int currentMana;
 	
 	public Player(String name, Hero hero) {
 		super();
@@ -18,12 +19,22 @@ public class Player {
 		this.board = new Board(hero);
 		this.name = name;
 		this.mana = 1;
+		this.currentMana = 1;
 	}
 	
-	public void play(int turn){}
+	public void play(int turn){
+		draw();
+		this.currentMana = this.mana;
+		
+		/*TODO*/
+		
+		this.mana++;
+	}
 	
 	//draw random card
-	public void draw(){}
+	public void draw(){
+		/*TODO*/
+	}
 
 	
 	/**
@@ -81,6 +92,18 @@ public class Player {
 	public void setMana(int mana) {
 		this.mana = mana;
 	}
-	
-	
+
+	/**
+	 * @return the currentMana
+	 */
+	public int getCurrentMana() {
+		return currentMana;
+	}
+
+	/**
+	 * @param currentMana the currentMana to set
+	 */
+	public void setCurrentMana(int currentMana) {
+		this.currentMana = currentMana;
+	}
 }

@@ -1,17 +1,22 @@
 package cards.minion;
 
+import java.util.ArrayList;
+
 import cards.Card;
 import game.Const;
 import game.Targetable;
+import observer.Observer;
+import observer.Subject;
 import state.MinionSleepState;
 import state.MinionState;
 
-public abstract class Minion extends Card implements Targetable{
+public abstract class Minion extends Card implements Targetable, Subject{
 
 	private int damage;
 	private int currentHealth;
 	private int healthMax;
 	private MinionState state;
+	private ArrayList<Observer> observers;
 
 	
 	public Minion(String name, int manaCost, Const.Heroes hero, int damage, int healthMax) {
@@ -20,6 +25,7 @@ public abstract class Minion extends Card implements Targetable{
 		this.currentHealth = healthMax;
 		this.healthMax = healthMax;
 		this.state = new MinionSleepState(this);
+		this.observers = new ArrayList<Observer>();
 	}
 	
 	public Minion(Minion m) {
@@ -30,8 +36,8 @@ public abstract class Minion extends Card implements Targetable{
 		this.state = m.getState();
 	}
 	
-	public void summon(){}
-	public void die(){}
+	//public void summon(){//battlecry}
+	//public void die(){//deathrattle}
 	
 	public void attack(Targetable target){
 		state.attack();
@@ -39,6 +45,23 @@ public abstract class Minion extends Card implements Targetable{
 	
 	public String toString(){
 		return state.toString();
+	}
+	
+	@Override
+	public void addObserver(Observer obs) {
+		observers.add(obs);
+	}
+
+	@Override
+	public void removeObserver(Observer obs) {
+		observers.remove(obs);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for(Observer obs : observers){
+			obs.refresh(this);
+		}
 	}
 
 	/**
@@ -96,6 +119,4 @@ public abstract class Minion extends Card implements Targetable{
 	public void setState(MinionState state) {
 		this.state = state;
 	}
-	
-
 }

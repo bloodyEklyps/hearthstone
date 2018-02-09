@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import cards.minion.Minion;
 import heros.Hero;
+import observer.Observer;
 
-public class Board {
+public class Board implements Observer{
 	
 	private Hero hero;
 	ArrayList<Minion> troops;
-	private final static int BOARDMAXSIZE = 7;
+	//private Subject minion; //do i rly need this?
+	private final int BOARDMAXSIZE = 7;
 	
 	public Board(Hero hero) {
 		super();
@@ -20,6 +22,7 @@ public class Board {
 	public void summon(Minion minion){
 		if(troops.size() < BOARDMAXSIZE){
 			troops.add(minion);
+			minion.addObserver(this);
 		}
 	}
 	
@@ -29,12 +32,29 @@ public class Board {
 		}
 	}
 	
-	public void destroy(Minion minion){
-		troops.remove(troops.indexOf(minion));
+	@Override
+	public void refresh(Object obj) {
+		Minion minion = ((Minion) obj);
+		if(troops.contains(minion)){
+			int index = troops.indexOf(minion);
+			if(minion.getCurrentHealth() <= 0){
+				troops.remove(index);
+			}
+			troops.set(index, minion);
+		}
+		display();//display an updated image of the board
+		/*TODO*/
 	}
 	
-	public void fullClear(){
-		troops.clear();
+	public void display(){
+		//display an image of the board
+		/*TODO*/
+		System.out.println("display board");
+	}
+	
+	public void destroy(Minion minion){
+		troops.remove(troops.indexOf(minion));
+		minion.removeObserver(this);
 	}
 	
 	/**
@@ -61,11 +81,4 @@ public class Board {
 	public void setTroops(ArrayList<Minion> troops) {
 		this.troops = troops;
 	}
-	
-	public String toString(){
-		return this.troops.toString();
-	}
-	
-	
-	
 }
