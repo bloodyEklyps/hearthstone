@@ -1,5 +1,6 @@
 package heros;
 
+import cards.Card;
 import game.Const;
 import game.Targetable;
 
@@ -81,7 +82,7 @@ public abstract class Hero implements Targetable{
 		this.name = name;
 	}
 	
-	
+	public abstract Card pickCard();
 	
 	
 }

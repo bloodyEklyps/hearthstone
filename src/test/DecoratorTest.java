@@ -1,6 +1,6 @@
 package test;
 
-import cards.CardFactory;
+import cards.WarriorCardFactory;
 import cards.minion.*;
 
 public class DecoratorTest {
@@ -8,7 +8,7 @@ public class DecoratorTest {
 	public static void main(String[] args){
 		
 		//Charge-----------------------
-		Minion c1 = (Minion)CardFactory.getCard("SanglierBrocheroc");
+		Minion c1 = (Minion)WarriorCardFactory.getCard("SanglierBrocheroc");
 		
 		System.out.println(c1);// Zz.
 		c1.attack(null);//can't attack = ok
@@ -20,7 +20,7 @@ public class DecoratorTest {
 		//2nd test with factory---------
 		
 		System.out.println("--------------");
-		Minion c2 = (Minion)CardFactory.getCard("ChevaucheurDeLoup");
+		Minion c2 = (Minion)WarriorCardFactory.getCard("ChevaucheurDeLoup");
 		c2.attack(null); //attacking = ok
 		
 		//LifeSteal-----------------------

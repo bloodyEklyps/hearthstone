@@ -1,6 +1,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import cards.Card;
 import heros.Hero;
@@ -29,6 +30,9 @@ public class Player {
 		/*TODO*/
 		
 		this.mana++;
+		System.out.println(hand);
+		System.out.println("action");
+		getAction();
 	}
 	
 	//draw random card
@@ -105,5 +109,14 @@ public class Player {
 	 */
 	public void setCurrentMana(int currentMana) {
 		this.currentMana = currentMana;
+	}
+	
+	public void pickCard() {
+		hand.add(board.getHero().pickCard());
+	}
+	
+	public void getAction() {
+		Scanner sc=new Scanner(System.in);
+		String line=sc.nextLine();
 	}
 }

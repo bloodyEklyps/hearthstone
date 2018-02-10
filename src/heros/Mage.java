@@ -1,5 +1,7 @@
 package heros;
 
+import cards.Card;
+import cards.MageCardFactory;
 import game.Const;
 import game.Targetable;
 
@@ -11,4 +13,9 @@ public class Mage extends Hero {
 
 	@Override
 	public void heroPower(Targetable target) {}
+	
+	public Card pickCard() {
+		return MageCardFactory.getAleatoireCard();
+		
+	}
 }

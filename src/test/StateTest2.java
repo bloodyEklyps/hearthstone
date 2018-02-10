@@ -6,7 +6,7 @@ import cards.minion.*;
 import state.MinionAwakeState;
 import state.MinionSleepState;
 
-public class StateTest {
+public class StateTest2 {
 
 	public static void main(String[] args) {
 		

@@ -29,10 +29,17 @@ public class Game {
 	}
 	
 	public void play(int turn){
-		/*TODO*/
-		player1.play(turn);
-		player2.play(turn);
-		turn++;
+
+		if(turn%2==0) {
+			System.out.println("Tour joueur 1");
+			player1.pickCard();
+			System.out.println(player2.getHand());
+			player1.play(turn);
+		}else {
+			System.out.println("Tour joueur 2");
+			player2.pickCard();
+			player2.play(turn);
+		}
 	}
 	
 	/**

@@ -57,6 +57,20 @@ public abstract class Card {
 	public void setHero(Const.Heroes hero) {
 		this.hero = hero;
 	}
+
+	@Override
+	public String toString() {
+		
+		return "|-----------|\n"+
+			   "|    "+name+"       |\n"+
+			   "|           |\n"+
+			   "|           |\n"+
+			   "|           |\n"+
+			   "|     "+manaCost+"      |\n"+
+			   "|-----------|\\n";
+	}
+	
+	
 	
 
 }

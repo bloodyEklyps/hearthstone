@@ -43,8 +43,9 @@ public abstract class Minion extends Card implements Targetable, Subject{
 		state.attack();
 	}
 	
-	public String toString(){
+	/*public String toString(){
 		return state.toString();
+<<<<<<< Updated upstream
 	}
 	
 	@Override
@@ -62,6 +63,7 @@ public abstract class Minion extends Card implements Targetable, Subject{
 		for(Observer obs : observers){
 			obs.refresh(this);
 		}
+	}
 	}
 
 	/**
@@ -119,4 +121,18 @@ public abstract class Minion extends Card implements Targetable, Subject{
 	public void setState(MinionState state) {
 		this.state = state;
 	}
+	
+	@Override
+	public String toString() {
+		
+		return super.getName()+"\n"+
+			   "|            |\n"+
+			   "|            |\n"+
+			   "|     "+currentHealth+"      |\n"+
+			   "|            |\n"+
+			   "|     "+super.getManaCost()+"      |\n"+
+			   "|------------|";
+	}
+	
+
 }
