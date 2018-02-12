@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import cards.Card;
+import cards.minion.Minion;
+import cards.spell.Spell;
+import game.Const.Action;
 import heros.Hero;
 import observer.Observer;
 import observer.Subject;
@@ -27,14 +30,21 @@ public class Player implements Subject{
 	
 	public void play(int turn){
 		pickCard();
+		showHand();
 		this.mana = (turn >= 10) ? 10 : turn;
 		
-		/*TODO
-		 * LOOP => while turn not finished 
-		 **/
+		Const.Action response=Action.ATTACK;
+		do{
+			response=getAction();
+			if(Action.PLAYCARD==response){
+				playCard();
+			}else{
+				
+			}
+		}while(response==Const.Action.SKIP);
 		
 		
-		showHand();
+		
 		System.out.println("action");
 		getAction();
 	}
@@ -105,15 +115,53 @@ public class Player implements Subject{
 		}
 	}
 	
-	public void getAction() {
-		Scanner sc=new Scanner(System.in);
-		String line=sc.nextLine();
+	public Const.Action getAction() {
+		System.out.println("Quelle action");
+		int choice=0;
+		do{
+			choice=Utils.getInputInt();
+		}while(choice<1||choice>3);
+		switch (choice) {
+		case 1:
+			return Const.Action.ATTACK;
+		case 2:
+			return Const.Action.PLAYCARD;
+		case 3:
+			return Const.Action.SKIP;
+		default:
+			return null; //error
+		}
 	}
 	
 	public void showHand(){
 		for(int index=0;index<hand.size();index++){
 			System.out.println(index+"-"+hand.get(index));
 		}
+	}
+	
+	public boolean playCard(){
+		int indexCard=Utils.getInputInt();
+		Card card=hand.get(indexCard);
+		if(card.getManaCost()>mana){
+			return false;
+		}else{
+			if(card instanceof Spell){
+				if(((Spell) card).cast(this)){
+					mana-=card.getManaCost();
+					hand.remove(indexCard);
+					return true;
+				}
+				else{
+					return false;
+				}
+			}else if(card instanceof Minion){
+				board.troops.add((Minion) card);
+				hand.remove(indexCard);
+				mana-=card.getManaCost();
+				return true;
+			}
+		}
+		return false; //Si ici problème
 	}
 
 	@Override

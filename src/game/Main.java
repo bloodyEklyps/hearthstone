@@ -29,18 +29,11 @@ public class Main {
 	}
 
 	public static String getPlayerName() {
-		Scanner reader = new Scanner(System.in); // Reading from System.in
-		System.out.println("Enter a name: ");
-		String name = reader.nextLine(); // Scans the next token of the input as an int.
-		// once finished
-		return name;
+		return Utils.getInputString();
 	}
 
 	public static Hero getHero() {
-		Scanner in = new Scanner(System.in); // Reading from System.in
-		System.out.println("Enter a number: ");
-		String name = in.nextLine(); // Sca
-		int number=Integer.parseInt(name);
+		int number=Utils.getInputInt();
 		Hero hero = null;
 		switch (number) {
 		case 1:

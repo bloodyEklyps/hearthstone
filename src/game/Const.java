@@ -19,4 +19,9 @@ public class Const {
 		ALLIES,
 		ALL;
 	}
+	public static enum Action {
+		ATTACK,
+		PLAYCARD,
+		SKIP;
+	}
 }

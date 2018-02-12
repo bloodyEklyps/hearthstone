@@ -1,16 +1,32 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Utils {
+	
+	public static int getInputInt(){
+		Scanner in = new Scanner(System.in); // Reading from System.in
+		System.out.println("Enter a number: ");
+		String name = in.nextLine(); // Sca
+		return Integer.parseInt(name);		
+	}	
+	
+	public static String getInputString(){
+		Scanner reader = new Scanner(System.in); // Reading from System.in
+		System.out.println("Enter a name: ");
+		return reader.nextLine(); // Scans the next token of the input as an int.
+	}
 
 	public static Targetable selectTarget(Player player, 
 			Const.Targets type, Const.Side side){
 				
 		ArrayList<Targetable> list = listTargets(player, type, side);
 		
-		/* TODO ask user for int*/
-		int choice = 0;
+		for(int i=0;i<list.size();i++){
+			System.out.println(i+" - "+list.get(i));
+		}
+		int choice = getInputInt();
 		
 		return list.get(choice);
 	}
@@ -59,6 +75,6 @@ public class Utils {
 		return targetList;
 	}
 	
-	
+
 	
 }
