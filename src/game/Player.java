@@ -5,13 +5,16 @@ import java.util.Scanner;
 
 import cards.Card;
 import heros.Hero;
+import observer.Observer;
+import observer.Subject;
 
-public class Player {
+public class Player implements Subject{
 
 	private ArrayList<Card> hand;
 	private Board board;
 	private String name;
 	private int mana;
+	private ArrayList<Observer> observers;
 	
 	public Player(String name, Hero hero) {
 		super();
@@ -19,6 +22,7 @@ public class Player {
 		this.board = new Board(hero);
 		this.name = name;
 		this.mana = 1;
+		this.observers = new ArrayList<Observer>();
 	}
 	
 	public void play(int turn){
@@ -109,6 +113,23 @@ public class Player {
 	public void showHand(){
 		for(int index=0;index<hand.size();index++){
 			System.out.println(index+"-"+hand.get(index));
+		}
+	}
+
+	@Override
+	public void addObserver(Observer obs) {
+		this.observers.add(obs);
+	}
+
+	@Override
+	public void removeObserver(Observer obs) {
+		this.observers.remove(obs);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for(Observer obs : observers){
+			obs.refresh(null);
 		}
 	}
 }
