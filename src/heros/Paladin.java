@@ -1,7 +1,6 @@
 package heros;
 
 import cards.Card;
-import cards.MageCardFactory;
 import cards.PaladinCardFactory;
 import game.Const;
 import game.Targetable;

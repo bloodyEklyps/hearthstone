@@ -32,12 +32,10 @@ public class Game {
 
 		if(turn%2==0) {
 			System.out.println("Tour joueur 1");
-			player1.pickCard();
-			System.out.println(player2.getHand());
+			//System.out.println(player2.getHand());
 			player1.play(turn);
 		}else {
 			System.out.println("Tour joueur 2");
-			player2.pickCard();
 			player2.play(turn);
 		}
 	}

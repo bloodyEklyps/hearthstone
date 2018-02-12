@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import cards.minion.Minion;
 import heros.Hero;
 import observer.Observer;
+import observer.Subject;
 
-public class Board implements Observer{
+public class Board implements Subject{
 	
 	private Hero hero;
 	ArrayList<Minion> troops;
@@ -22,7 +23,6 @@ public class Board implements Observer{
 	public void summon(Minion minion){
 		if(troops.size() < BOARDMAXSIZE){
 			troops.add(minion);
-			minion.addObserver(this);
 		}
 	}
 	
@@ -31,21 +31,7 @@ public class Board implements Observer{
 			m.setCurrentHealth(m.getCurrentHealth()-damage);
 		}
 	}
-	
-	@Override
-	public void refresh(Object obj) {
-		Minion minion = ((Minion) obj);
-		if(troops.contains(minion)){
-			int index = troops.indexOf(minion);
-			if(minion.getCurrentHealth() <= 0){
-				troops.remove(index);
-			}
-			troops.set(index, minion);
-		}
-		display();//display an updated image of the board
-		/*TODO*/
-	}
-	
+		
 	public void display(){
 		//display an image of the board
 		/*TODO*/
@@ -54,7 +40,6 @@ public class Board implements Observer{
 	
 	public void destroy(Minion minion){
 		troops.remove(troops.indexOf(minion));
-		minion.removeObserver(this);
 	}
 	
 	/**
@@ -80,5 +65,23 @@ public class Board implements Observer{
 	 */
 	public void setTroops(ArrayList<Minion> troops) {
 		this.troops = troops;
+	}
+
+	@Override
+	public void addObserver(Observer obs) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeObserver(Observer obs) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notifyObservers() {
+		// TODO Auto-generated method stub
+		
 	}
 }
