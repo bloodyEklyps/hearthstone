@@ -11,31 +11,23 @@ public class MageCardFactory {
 	private static final Map<String, Card> map = new HashMap<String, Card>();
 	private static final Map<Integer, String> mapnumb = new HashMap<Integer, String>();
 
+	
 	static {
 		//minions
-		mapnumb.put(0,"SanglierBrocheroc");
-		mapnumb.put(1,"ChevaucheurDeLoup");
-		mapnumb.put(2,"SoldatDuCompteDeLOr");
-		mapnumb.put(3,"ChefDeRaid");
-		mapnumb.put(4,"YetiNoroit");
+		map.putAll(CommonCardFactory.map);
 		
 		
 		//spells
-		mapnumb.put(5,"BenedictionDePuissance");
+
 		
 		/*TODO complete with other cards*/
 	}
 	static {
 		//minions
-		map.put("SanglierBrocheroc", SanglierBrocheroc.createSanglierBrocheroc());
-		map.put("ChevaucheurDeLoup", ChevaucheurDeLoup.createChevaucheurDeLoup());
-		map.put("SoldatDuCompteDeLOr", SoldatDuCompteDeLOr.createSoldatDuCompteDeLOr());
-		map.put("ChefDeRaid", ChefDeRaid.createChefDeRaid());
-		map.put("YetiNoroit", YetiNoroit.createYetiNoroit());
+		mapnumb.putAll(CommonCardFactory.mapnumb);
 		
 		
 		//spells
-		map.put("BenedictionDePuissance", BenedictionDePuissance.createBenedictionDePuissance());
 		
 		/*TODO complete with other cards*/
 	}
@@ -45,7 +37,7 @@ public class MageCardFactory {
 		
 	}
 	public static Card getAleatoireCard(){
-		int alea=(int) (Math.random()*(mapnumb.size()+1));
+		int alea=(int) (Math.random()*(mapnumb.size()));
 		return map.get(mapnumb.get(alea));
 		
 	}
