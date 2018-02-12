@@ -21,10 +21,10 @@ public class Main {
 		Player p2=new Player(p2name, p2Hero);
 
 		Game game=new Game(p1,p2);
-		int i=0;
+		int turn=1;
 		while(true) {
-			game.play(i);
-			i++;
+			game.play(turn);
+			turn++;
 		}
 	}
 

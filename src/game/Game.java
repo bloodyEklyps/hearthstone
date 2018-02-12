@@ -7,7 +7,7 @@ public class Game {
 	private static Player player1 = null;
 	private static Player player2 = null;
 	private int turn;
-	
+
 	public Game(Player player1, Player player2) {
 		super();
 		Game.player1 = player1;
@@ -27,19 +27,19 @@ public class Game {
 			}
 		}
 	}
-	
-	public void play(int turn){
 
-		if(turn%2==0) {
-			System.out.println("Tour joueur 1");
-			//System.out.println(player2.getHand());
-			player1.play(turn);
-		}else {
-			System.out.println("Tour joueur 2");
-			player2.play(turn);
+	public void play(int turn){
+		if(turn==1){
+			player1.pickManyCard(3);
+			player2.pickManyCard(4);
 		}
+		System.out.println("Tour joueur 1");
+		player1.play(turn);
+		System.out.println("Tour joueur 2");
+		player2.play(turn);
+
 	}
-	
+
 	/**
 	 * @return the player1
 	 */
@@ -82,6 +82,6 @@ public class Game {
 		this.turn = turn;
 	}
 
-	
-	
+
+
 }

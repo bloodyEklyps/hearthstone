@@ -30,7 +30,7 @@ public class Player {
 		 **/
 		
 		
-		System.out.println(hand);
+		showHand();
 		System.out.println("action");
 		getAction();
 	}
@@ -95,8 +95,20 @@ public class Player {
 		hand.add(board.getHero().pickCard());
 	}
 	
+	public void pickManyCard(int nbrCard) {
+		for(int i=0;i<3;i++){
+			pickCard();
+		}
+	}
+	
 	public void getAction() {
 		Scanner sc=new Scanner(System.in);
 		String line=sc.nextLine();
+	}
+	
+	public void showHand(){
+		for(int index=0;index<hand.size();index++){
+			System.out.println(index+"-"+hand.get(index));
+		}
 	}
 }
