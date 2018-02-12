@@ -2,6 +2,7 @@ package game;
 
 import java.util.ArrayList;
 
+import cards.Card;
 import cards.minion.Minion;
 import heros.Hero;
 import observer.Observer;
@@ -32,9 +33,26 @@ public class Board implements Observer{
 	}
 		
 	public void display(){
-		//display an image of the board
-		/*TODO*/
-		System.out.println("display board");
+		String res="|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|\n";
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+		for(Card c:troops) {
+			res+="|";
+			int nbrspace=(21-c.getName().length())/2;
+			for(int i=0;i<nbrspace;i++) {
+				res+=" ";
+			}
+			res+=c.getName();
+			for(int i=0;i<=nbrspace;i++) {
+				res+=" ";
+			}
+		}
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+		res+="|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|\n";
+	System.out.println(res);
 	}
 	
 	public void destroy(Minion minion){

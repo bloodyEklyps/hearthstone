@@ -33,9 +33,9 @@ public class Game {
 			player1.pickManyCard(3);
 			player2.pickManyCard(4);
 		}
-		System.out.println("Tour joueur 1");
+		System.out.println("Au tour de "+player1.getName());
 		player1.play(turn);
-		System.out.println("Tour joueur 2");
+		System.out.println("Au tour de "+player2.getName());
 		player2.play(turn);
 
 	}

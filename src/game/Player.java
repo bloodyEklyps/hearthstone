@@ -35,18 +35,19 @@ public class Player implements Subject{
 		
 		Const.Action response=Action.ATTACK;
 		do{
+			board.display();
+			System.out.println("Choisissez votre action : ");
+			System.out.println("1 - Attaque");
+			System.out.println("2 - Jouer une carte ");
+			System.out.println("3 - Passer");
 			response=getAction();
 			if(Action.PLAYCARD==response){
 				playCard();
 			}else{
 				
 			}
-		}while(response==Const.Action.SKIP);
-		
-		
-		
-		System.out.println("action");
-		getAction();
+		}while(response!=Const.Action.SKIP);
+			
 	}
 		
 	/**
@@ -140,12 +141,17 @@ public class Player implements Subject{
 	}
 	
 	public boolean playCard(){
+		System.out.println("Placer quelle carte?");
+		showHand();
 		int indexCard=Utils.getInputInt();
 		Card card=hand.get(indexCard);
+
 		if(card.getManaCost()>mana){
+			System.out.println("Pas assez de mana");
 			return false;
 		}else{
 			if(card instanceof Spell){
+				System.out.println("instance de spell");
 				if(((Spell) card).cast(this)){
 					mana-=card.getManaCost();
 					hand.remove(indexCard);

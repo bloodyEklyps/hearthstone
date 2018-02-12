@@ -7,14 +7,12 @@ public class Utils {
 	
 	public static int getInputInt(){
 		Scanner in = new Scanner(System.in); // Reading from System.in
-		System.out.println("Enter a number: ");
 		String name = in.nextLine(); // Sca
 		return Integer.parseInt(name);		
 	}	
 	
 	public static String getInputString(){
 		Scanner reader = new Scanner(System.in); // Reading from System.in
-		System.out.println("Enter a name: ");
 		return reader.nextLine(); // Scans the next token of the input as an int.
 	}
 
