@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import cards.minion.Minion;
 import heros.Hero;
 import observer.Observer;
-import observer.Subject;
 
-public class Board implements Subject{
+public class Board implements Observer{
 	
 	private Hero hero;
 	ArrayList<Minion> troops;
@@ -68,20 +67,8 @@ public class Board implements Subject{
 	}
 
 	@Override
-	public void addObserver(Observer obs) {
-		// TODO Auto-generated method stub
-		
+	public void refresh(Object obj) {
+		display();		
 	}
 
-	@Override
-	public void removeObserver(Observer obs) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void notifyObservers() {
-		// TODO Auto-generated method stub
-		
-	}
 }
