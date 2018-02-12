@@ -10,6 +10,8 @@ import game.Const.Action;
 import heros.Hero;
 import observer.Observer;
 import observer.Subject;
+import state.MinionAwakeState;
+import state.MinionSleepState;
 
 public class Player implements Subject{
 
@@ -43,10 +45,13 @@ public class Player implements Subject{
 			response=getAction();
 			if(Action.PLAYCARD==response){
 				playCard();
-			}else{
-				
+			}else if(Action.ATTACK==response){
+				attack();
 			}
 		}while(response!=Const.Action.SKIP);
+		for(Card c:board.troops) {
+			((Minion) c).setState(new MinionAwakeState((Minion) c));
+		}
 			
 	}
 		
@@ -168,6 +173,17 @@ public class Player implements Subject{
 			}
 		}
 		return false; //Si ici problème
+	}
+	
+	public boolean attack(){
+		System.out.println("Quelle carte doit attaquer?");
+		board.display();
+		int indexCard=Utils.getInputInt();
+		Minion card=(Minion) board.troops.get(indexCard);
+		System.out.println("quelle carte attaquer?");
+		card.attack(Utils.selectTarget(this, Const.Targets.CHARACTERS, Const.Side.ALL));
+		card.setState(new MinionSleepState(card));
+		return true; //Si ici problème
 	}
 
 	@Override
