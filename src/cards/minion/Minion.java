@@ -35,18 +35,11 @@ public abstract class Minion extends Card implements Targetable, Subject{
 		this.healthMax = m.getHealthMax();
 		this.state = m.getState();
 	}
-	
-	//public void summon(){//battlecry}
-	//public void die(){//deathrattle}
-	
+		
 	public void attack(Targetable target){
 		state.attack();
 	}
 	
-	/*public String toString(){
-		return state.toString();
-<<<<<<< Updated upstream
-	}
 	
 	@Override
 	public void addObserver(Observer obs) {
@@ -64,7 +57,7 @@ public abstract class Minion extends Card implements Targetable, Subject{
 			obs.refresh(this);
 		}
 	}
-	}
+	
 
 	/**
 	 * @return the damage
