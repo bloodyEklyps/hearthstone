@@ -19,7 +19,6 @@ public class Game {
 
 	public static Player getEnnemy(Player p){
 		if(player1 == null || player2 == null){
-			/*TODO throw exception*/
 			return null;
 		}else {
 			if(p.equals(player1)){

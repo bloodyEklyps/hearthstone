@@ -19,6 +19,7 @@ public class Consecration extends Spell{
 	public boolean cast(Player caster) {
 		Board ennemyBoard = Game.getEnnemy(caster).getBoard();
 		ennemyBoard.aoe(2);
+		ennemyBoard.getHero().takeDammage(2);;
 		return true;
 	}
 

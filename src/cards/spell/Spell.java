@@ -1,7 +1,6 @@
 package cards.spell;
 
 import cards.Card;
-import game.Const;
 import game.Player;
 
 public abstract class Spell extends Card {

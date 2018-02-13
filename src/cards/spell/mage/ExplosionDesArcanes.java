@@ -2,7 +2,6 @@ package cards.spell.mage;
 
 import cards.spell.Spell;
 import game.Board;
-import game.Const;
 import game.Game;
 import game.Player;
 

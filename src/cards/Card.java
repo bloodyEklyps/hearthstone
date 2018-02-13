@@ -1,7 +1,5 @@
 package cards;
 
-import game.Const;
-
 public abstract class Card {
 
 	private int manaCost;
