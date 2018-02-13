@@ -18,6 +18,6 @@ public class Warrior extends Hero {
 
 	@Override
 	public Card pickCard() {
-		return WarriorCardFactory.getAleatoireCard();
+		return WarriorCardFactory.getRandomCard();
 	}
 }

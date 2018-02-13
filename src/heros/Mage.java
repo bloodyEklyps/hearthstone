@@ -22,7 +22,7 @@ public class Mage extends Hero {
 	}
 	
 	public Card pickCard() {
-		return MageCardFactory.getAleatoireCard();
+		return MageCardFactory.getRandomCard();
 		
 	}
 }

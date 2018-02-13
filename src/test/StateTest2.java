@@ -10,7 +10,7 @@ public class StateTest2 {
 
 	public static void main(String[] args) {
 		
-		Minion c1 = (Minion)WarriorCardFactory.getCard("SanglierBrocheroc");
+		Minion c1 = (Minion)WarriorCardFactory.getRandomCard();
 		System.out.println("minion created");
 		System.out.println(c1);//Zz
 		c1.attack(null);//can't attack

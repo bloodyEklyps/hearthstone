@@ -21,6 +21,6 @@ public class Paladin extends Hero {
 
 	@Override
 	public Card pickCard() {
-		return PaladinCardFactory.getAleatoireCard();
+		return PaladinCardFactory.getRandomCard();
 	}
 }
