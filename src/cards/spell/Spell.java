@@ -6,8 +6,8 @@ import game.Player;
 
 public abstract class Spell extends Card {
 
-	public Spell(String name, int manaCost, Const.Heroes hero) {
-		super(name, manaCost, hero);
+	public Spell(String name, int manaCost) {
+		super(name, manaCost);
 	}
 
 	//return false whenever you can't cast the spell

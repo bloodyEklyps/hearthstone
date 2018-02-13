@@ -1,6 +1,7 @@
-package cards.spell;
+package cards.spell.mage;
 
-import cards.minion.Minion;
+import cards.minion.common.Minion;
+import cards.spell.Spell;
 import game.Const;
 import game.Player;
 import game.Targetable;
@@ -9,7 +10,7 @@ import game.Utils;
 public class Metamorphose extends Spell{
 
 	private Metamorphose() {
-		super("Métamorphose", 4, Const.Heroes.MAGE);
+		super("Métamorphose", 4);
 	}
 
 	public static Spell createMetamorphose(){

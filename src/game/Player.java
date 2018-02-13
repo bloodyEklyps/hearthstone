@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import cards.Card;
-import cards.minion.Minion;
+import cards.minion.common.Minion;
 import cards.spell.Spell;
 import game.Const.Action;
 import heros.Hero;

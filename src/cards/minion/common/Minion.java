@@ -1,4 +1,4 @@
-package cards.minion;
+package cards.minion.common;
 
 import cards.Card;
 import game.Const;
@@ -13,8 +13,8 @@ public abstract class Minion extends Card implements Targetable{
 	private int healthMax;
 	private MinionState state;
 	
-	public Minion(String name, int manaCost, Const.Heroes hero, int damage, int healthMax) {
-		super(name, manaCost, hero);
+	public Minion(String name, int manaCost, int damage, int healthMax) {
+		super(name, manaCost);
 		this.damage = damage;
 		this.currentHealth = healthMax;
 		this.healthMax = healthMax;
@@ -22,7 +22,7 @@ public abstract class Minion extends Card implements Targetable{
 	}
 	
 	public Minion(Minion m) {
-		super(m.getName(), m.getManaCost(), m.getHero());
+		super(m.getName(), m.getManaCost());
 		this.damage = m.getDamage();
 		this.currentHealth = m.getCurrentHealth();
 		this.healthMax = m.getHealthMax();

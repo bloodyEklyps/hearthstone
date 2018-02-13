@@ -2,7 +2,7 @@ package heros;
 
 import cards.Card;
 import cards.PaladinCardFactory;
-import cards.minion.RecrueDeLaMainDArgent;
+import cards.minion.special.RecrueDeLaMainDArgent;
 import game.Board;
 import game.Const;
 import game.Player;

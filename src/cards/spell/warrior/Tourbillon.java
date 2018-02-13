@@ -1,24 +1,27 @@
-package cards.spell;
+package cards.spell.warrior;
 
+import cards.spell.Spell;
 import game.Board;
 import game.Const;
 import game.Game;
 import game.Player;
 
-public class ExplosionDesArcanes extends Spell{
+public class Tourbillon extends Spell{
 
-	private ExplosionDesArcanes() {
-		super("Explosion des arcanes", 2, Const.Heroes.MAGE);
+	private Tourbillon() {
+		super("Tourbillon", 1);
 	}
 	
 	public static Spell createExplosionDesArcanes(){
-		return new ExplosionDesArcanes();
+		return new Tourbillon();
 	}
 
 	@Override
 	public boolean cast(Player caster) {
 		Board ennemyBoard = Game.getEnnemy(caster).getBoard();
+		Board allyBoard = caster.getBoard();
 		ennemyBoard.aoe(1);
+		allyBoard.aoe(1);
 		return true;
 	}
 

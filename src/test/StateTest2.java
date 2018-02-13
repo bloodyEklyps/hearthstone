@@ -2,7 +2,7 @@ package test;
 
 
 import cards.WarriorCardFactory;
-import cards.minion.*;
+import cards.minion.common.*;
 import state.MinionAwakeState;
 import state.MinionSleepState;
 

@@ -3,8 +3,8 @@ package cards;
 import java.util.HashMap;
 import java.util.Map;
 
-import cards.minion.*;
-import cards.spell.*;
+import cards.minion.common.*;
+import cards.spell.paladin.*;
 
 public class MageCardFactory {
 

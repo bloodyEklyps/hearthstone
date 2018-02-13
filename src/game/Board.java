@@ -3,7 +3,7 @@ package game;
 import java.util.ArrayList;
 
 import cards.Card;
-import cards.minion.Minion;
+import cards.minion.common.Minion;
 import heros.Hero;
 import observer.Observer;
 

@@ -1,7 +1,7 @@
 package test;
 
 import cards.WarriorCardFactory;
-import cards.minion.*;
+import cards.minion.common.*;
 
 public class DecoratorTest {
 

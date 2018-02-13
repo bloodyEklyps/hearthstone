@@ -1,4 +1,4 @@
-package cards.minion;
+package cards.minion.common;
 
 
 public class TauntMinion extends MinionDecorator {

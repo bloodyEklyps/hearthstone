@@ -1,4 +1,4 @@
-package cards.minion;
+package cards.minion.common;
 
 import game.Targetable;
 
