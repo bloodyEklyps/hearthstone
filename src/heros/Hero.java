@@ -96,4 +96,5 @@ public abstract class Hero implements Targetable{
 		
 	}
 	
+	
 }

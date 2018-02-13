@@ -8,6 +8,7 @@ import cards.minion.common.Minion;
 import cards.spell.Spell;
 import game.Const.Action;
 import heros.Hero;
+import jdk.nashorn.internal.codegen.CompilerConstants;
 import observer.Observer;
 import observer.Subject;
 import state.MinionAwakeState;
@@ -44,11 +45,14 @@ public class Player implements Subject{
 			System.out.println("1 - Attaque");
 			System.out.println("2 - Jouer une carte ");
 			System.out.println("3 - Passer");
+			System.out.println("4 - Pouvoir");
 			response=getAction();
 			if(Action.PLAYCARD==response){
 				playCard();
 			}else if(Action.ATTACK==response){
 				attack();
+			}else if(Action.POWER==response) {
+				power();
 			}
 		}while(response!=Const.Action.SKIP);
 		for(Card c:board.troops) {
@@ -136,6 +140,8 @@ public class Player implements Subject{
 			return Const.Action.PLAYCARD;
 		case 3:
 			return Const.Action.SKIP;
+		case 4:
+			return Const.Action.POWER;
 		default:
 			return null; //error
 		}
@@ -158,7 +164,6 @@ public class Player implements Subject{
 			return false;
 		}else{
 			if(card instanceof Spell){
-				System.out.println("instance de spell");
 				if(((Spell) card).cast(this)){
 					mana-=card.getManaCost();
 					hand.remove(indexCard);
@@ -186,6 +191,9 @@ public class Player implements Subject{
 		card.attack(Utils.selectTarget(this, Const.Targets.CHARACTERS, Const.Side.ENEMIES));
 		card.setState(new MinionSleepState(card));
 		return true; //Si ici problème
+	}
+	public void power() {
+		board.getHero().heroPower(this);
 	}
 
 	@Override

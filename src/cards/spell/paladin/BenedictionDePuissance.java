@@ -12,20 +12,18 @@ public class BenedictionDePuissance extends Spell{
 	private BenedictionDePuissance(){
 		super("Bénédiction de puissance", 1);
 	}
-	
+
 	public static Spell createBenedictionDePuissance(){
 		return new BenedictionDePuissance();
 	}
 
 	@Override
 	public boolean cast(Player caster) {
+		System.out.println("Quelle carte beneficiaire?");
 		Targetable target = Utils.selectTarget(caster, Const.Targets.MINIONS, Const.Side.ALL);
-		if(target.getClass() != Minion.class){
-			return false;
-		} else {
-			Minion m = ((Minion)target);
-			m.setDamage(m.getDamage()+3);
-			return true;
-		}
+		Minion m = ((Minion)target);
+		m.setDamage(m.getDamage()+3);
+		return true;
+
 	}
 }

@@ -22,6 +22,7 @@ public class Const {
 	public static enum Action {
 		ATTACK,
 		PLAYCARD,
+		POWER,
 		SKIP;
 	}
 }

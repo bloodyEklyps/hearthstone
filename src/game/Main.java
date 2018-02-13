@@ -7,14 +7,14 @@ public class Main {
 	public static void main(String[] args){
 		System.out.println("Joueur 1 quelle est votre nom?");
 		String p1name=getPlayerName();
-		System.out.println("Quel sera votre h�ro?");
+		System.out.println("Quel sera votre hero?");
 		System.out.println("1-Mage   2-Paladin   3-Warrior");
 		Hero p1Hero=getHero();
 		Player p1=new Player(p1name, p1Hero);
 		
 		System.out.println("Joueur 2 quelle est votre nom?");
 		String p2name=getPlayerName();
-		System.out.println("Quel sera votre h�ro?");
+		System.out.println("Quel sera votre hero?");
 		System.out.println("1-Mage   2-Paladin   3-Warrior");
 		Hero p2Hero=getHero();
 		Player p2=new Player(p2name, p2Hero);

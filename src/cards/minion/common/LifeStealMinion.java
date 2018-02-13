@@ -9,8 +9,7 @@ public class LifeStealMinion extends MinionDecorator {
 	}
 	
 	public void attack(Targetable target){
-		System.out.println("attack");
-		System.out.println("heal hero");
+		this.getDamage();
 	}
 
 

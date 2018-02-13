@@ -16,19 +16,17 @@ public class Metamorphose extends Spell{
 	public static Spell createMetamorphose(){
 		return new Metamorphose();
 	}
-	
+
 	@Override
 	public boolean cast(Player caster) {
+		System.out.println("Quelle carte métamorphoser?");
 		Targetable target = Utils.selectTarget(caster, Const.Targets.MINIONS, Const.Side.ALL);
-		if(target.getClass() != Minion.class){
-			return false;
-		} else {
-			Minion m = ((Minion)target);
-			m.setDamage(1);
-			m.setCurrentHealth(1);
-			m.setHealthMax(1);
-			return true;
-		}
+		Minion m = ((Minion)target);
+		m.setDamage(1);
+		m.setCurrentHealth(1);
+		m.setHealthMax(1);
+		return true;
+
 
 	}
 
