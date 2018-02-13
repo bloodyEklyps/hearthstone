@@ -1,10 +1,7 @@
 package state;
 
-import com.sun.prism.impl.Disposer.Target;
-
 import cards.minion.Minion;
 import game.Targetable;
-import heros.Hero;
 
 public class MinionAwakeState implements MinionState {
 
