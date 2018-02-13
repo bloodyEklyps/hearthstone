@@ -32,13 +32,15 @@ public class Player implements Subject{
 	
 	public void play(int turn){
 		pickCard();
-		showHand();
+		Player ennemy = Game.getEnnemy(this);
 		this.mana = (turn >= 10) ? 10 : turn;
 		
 		Const.Action response=Action.ATTACK;
 		do{
+			ennemy.getBoard().refresh(null);
 			board.refresh(null);//we don't need to give any data to the board
-			System.out.println("Choisissez votre action : ");
+			showHand();
+			System.out.println("Choisissez votre action (mana : "+this.mana+") : ");
 			System.out.println("1 - Attaque");
 			System.out.println("2 - Jouer une carte ");
 			System.out.println("3 - Passer");

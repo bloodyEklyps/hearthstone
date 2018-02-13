@@ -3,8 +3,6 @@ package game;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import com.sun.xml.internal.ws.api.pipe.NextAction;
-
 import cards.Card;
 import cards.minion.common.Minion;
 import heros.Hero;

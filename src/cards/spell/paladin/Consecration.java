@@ -8,7 +8,7 @@ import game.Player;
 public class Consecration extends Spell{
 
 	private Consecration() {
-		super("Consécration", 2);
+		super("Consécration", 4);
 	}
 	
 	public static Spell createConsecration(){
