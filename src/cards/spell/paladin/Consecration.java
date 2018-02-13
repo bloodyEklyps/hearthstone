@@ -2,7 +2,6 @@ package cards.spell.paladin;
 
 import cards.spell.Spell;
 import game.Board;
-import game.Const;
 import game.Game;
 import game.Player;
 
@@ -12,7 +11,7 @@ public class Consecration extends Spell{
 		super("Consécration", 2);
 	}
 	
-	public static Spell createExplosionDesArcanes(){
+	public static Spell createConsecration(){
 		return new Consecration();
 	}
 

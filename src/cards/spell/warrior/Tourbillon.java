@@ -2,7 +2,6 @@ package cards.spell.warrior;
 
 import cards.spell.Spell;
 import game.Board;
-import game.Const;
 import game.Game;
 import game.Player;
 
@@ -12,7 +11,7 @@ public class Tourbillon extends Spell{
 		super("Tourbillon", 1);
 	}
 	
-	public static Spell createExplosionDesArcanes(){
+	public static Spell createTourbillon(){
 		return new Tourbillon();
 	}
 

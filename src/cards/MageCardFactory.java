@@ -1,44 +1,29 @@
 package cards;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
-import cards.minion.common.*;
-import cards.spell.paladin.*;
+import cards.spell.mage.ExplosionDesArcanes;
+import cards.spell.mage.ImageMiroir;
+import cards.spell.mage.Metamorphose;
+
 
 public class MageCardFactory {
 
-	private static final Map<String, Card> map = new HashMap<String, Card>();
-	private static final Map<Integer, String> mapnumb = new HashMap<Integer, String>();
-
+	public static final ArrayList<Card> mageCards = new ArrayList<Card>();
+	public static final ArrayList<Card> allCards = new ArrayList<Card>();
 	
 	static {
-		//minions
-		map.putAll(CommonCardFactory.map);
+		mageCards.add(ExplosionDesArcanes.createExplosionDesArcanes());
+		mageCards.add(ImageMiroir.createImageMiroir());
+		mageCards.add(Metamorphose.createMetamorphose());
 		
-		
-		//spells
-
-		
-		/*TODO complete with other cards*/
-	}
-	static {
-		//minions
-		mapnumb.putAll(CommonCardFactory.mapnumb);
-		
-		
-		//spells
-		
-		/*TODO complete with other cards*/
+		allCards.addAll(mageCards);
+		allCards.addAll(CommonCardFactory.commonCards);
 	}
 	
-	public static Card getCard(String name){
-		return map.get(name);
-		
-	}
-	public static Card getAleatoireCard(){
-		int alea=(int) (Math.random()*(mapnumb.size()));
-		return map.get(mapnumb.get(alea));
+	public static Card getRandomCard(){
+		int alea=(int) (Math.random()*(allCards.size()));
+		return allCards.get(alea);
 		
 	}
 }

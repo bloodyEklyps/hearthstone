@@ -1,45 +1,26 @@
 package cards;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import cards.minion.common.*;
-import cards.spell.paladin.*;
+import java.util.ArrayList;
+import cards.minion.warrior.AvocatCommisDoffice;
+import cards.spell.warrior.MaitriseDuBlocage;
+import cards.spell.warrior.Tourbillon;
 
 public class WarriorCardFactory {
-
-
-	private static final Map<String, Card> map = new HashMap<String, Card>();
-	private static final Map<Integer, String> mapnumb = new HashMap<Integer, String>();
-
+	public static final ArrayList<Card> warriorCards = new ArrayList<Card>();
+	public static final ArrayList<Card> allCards = new ArrayList<Card>();
 	
 	static {
-		//minions
-		map.putAll(CommonCardFactory.map);
+		warriorCards.add(Tourbillon.createTourbillon());
+		warriorCards.add(MaitriseDuBlocage.createMaitriseDuBlocage());
+		warriorCards.add(AvocatCommisDoffice.createAvocatCommisDoffice());
 		
-		
-		//spells
-
-		
-		/*TODO complete with other cards*/
-	}
-	static {
-		//minions
-		mapnumb.putAll(CommonCardFactory.mapnumb);
-		
-		
-		//spells
-		
-		/*TODO complete with other cards*/
+		allCards.addAll(warriorCards);
+		allCards.addAll(CommonCardFactory.commonCards);
 	}
 	
-	public static Card getCard(String name){
-		return map.get(name);
-		
-	}
-	public static Card getAleatoireCard(){
-		int alea=(int) (Math.random()*(mapnumb.size()));
-		return map.get(mapnumb.get(alea));
+	public static Card getRandomCard(){
+		int alea=(int) (Math.random()*(allCards.size()));
+		return allCards.get(alea);
 		
 	}
 }
