@@ -3,7 +3,9 @@ package heros;
 import cards.Card;
 import cards.MageCardFactory;
 import game.Const;
+import game.Player;
 import game.Targetable;
+import game.Utils;
 
 public class Mage extends Hero {
 	
@@ -12,7 +14,12 @@ public class Mage extends Hero {
 	}
 
 	@Override
-	public void heroPower(Targetable target) {}
+	public void heroPower(Player caster) {
+		Targetable target = Utils.selectTarget(caster,
+				Const.Targets.CHARACTERS, Const.Side.ENEMIES);
+		target.takeDammage(1);
+
+	}
 	
 	public Card pickCard() {
 		return MageCardFactory.getAleatoireCard();

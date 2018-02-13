@@ -3,7 +3,7 @@ package heros;
 import cards.Card;
 import cards.WarriorCardFactory;
 import game.Const;
-import game.Targetable;
+import game.Player;
 
 public class Warrior extends Hero {
 
@@ -12,11 +12,12 @@ public class Warrior extends Hero {
 	}
 
 	@Override
-	public void heroPower(Targetable target) {}
+	public void heroPower(Player caster) {
+		this.setArmor(this.getArmor()+2);
+	}
 
 	@Override
 	public Card pickCard() {
-		// TODO Auto-generated method stub
 		return WarriorCardFactory.getAleatoireCard();
 	}
 }

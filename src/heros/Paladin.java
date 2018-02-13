@@ -2,8 +2,10 @@ package heros;
 
 import cards.Card;
 import cards.PaladinCardFactory;
+import cards.minion.RecrueDeLaMainDArgent;
+import game.Board;
 import game.Const;
-import game.Targetable;
+import game.Player;
 
 public class Paladin extends Hero {
 
@@ -12,11 +14,13 @@ public class Paladin extends Hero {
 	}
 	
 	@Override
-	public void heroPower(Targetable target) {}
+	public void heroPower(Player caster) {
+		Board board = caster.getBoard();
+		board.getTroops().add(RecrueDeLaMainDArgent.createRecrueDeLaMainDArgent());
+	}
 
 	@Override
 	public Card pickCard() {
 		return PaladinCardFactory.getAleatoireCard();
-
 	}
 }

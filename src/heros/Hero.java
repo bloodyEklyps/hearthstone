@@ -2,6 +2,7 @@ package heros;
 
 import cards.Card;
 import game.Const;
+import game.Player;
 import game.Targetable;
 
 public abstract class Hero implements Targetable{
@@ -19,7 +20,7 @@ public abstract class Hero implements Targetable{
 		this.healthMax = 30;
 	}
 
-	public abstract void heroPower(Targetable target);
+	public abstract void heroPower(Player caster);
 
 	public String toString(){
 		return name+" "+currentHealth+"+"+armor+"";
