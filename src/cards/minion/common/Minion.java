@@ -1,7 +1,6 @@
 package cards.minion.common;
 
 import cards.Card;
-import game.Const;
 import game.Targetable;
 import state.MinionSleepState;
 import state.MinionState;
