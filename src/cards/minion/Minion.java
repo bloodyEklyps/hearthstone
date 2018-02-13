@@ -30,7 +30,7 @@ public abstract class Minion extends Card implements Targetable{
 	}
 		
 	public void attack(Targetable target){
-		state.attack();
+		state.attack(target);
 	}	
 
 	/**
@@ -94,6 +94,10 @@ public abstract class Minion extends Card implements Targetable{
 
 		return this.getName()+" "+this.getManaCost()+"/"+this.getDamage()+"/"+getCurrentHealth();
 
+	}
+	@Override
+	public void takeDammage(int dammage) {
+		this.currentHealth-=dammage;
 	}
 	
 

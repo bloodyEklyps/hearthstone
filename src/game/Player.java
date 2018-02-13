@@ -181,7 +181,7 @@ public class Player implements Subject{
 		int indexCard=Utils.getInputInt();
 		Minion card=(Minion) board.troops.get(indexCard);
 		System.out.println("quelle carte attaquer?");
-		card.attack(Utils.selectTarget(this, Const.Targets.CHARACTERS, Const.Side.ALL));
+		card.attack(Utils.selectTarget(this, Const.Targets.CHARACTERS, Const.Side.ENEMIES));
 		card.setState(new MinionSleepState(card));
 		return true; //Si ici problème
 	}

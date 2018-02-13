@@ -1,6 +1,10 @@
 package state;
 
+import com.sun.prism.impl.Disposer.Target;
+
 import cards.minion.Minion;
+import game.Targetable;
+import heros.Hero;
 
 public class MinionAwakeState implements MinionState {
 
@@ -11,8 +15,11 @@ public class MinionAwakeState implements MinionState {
 		this.minion = minion;
 	}
 	@Override
-	public void attack() {
-		System.out.println("attacking...");
+	public void attack(Targetable targ) {
+		targ.takeDammage(minion.getDamage());
+		if(targ instanceof Minion){
+			minion.takeDammage(((Minion) targ).getDamage());
+		}
 	}
 	
 	public String toString(){

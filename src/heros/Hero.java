@@ -84,5 +84,15 @@ public abstract class Hero implements Targetable{
 	
 	public abstract Card pickCard();
 	
+	@Override
+	public void takeDammage(int dammage) {
+		if(this.getArmor()>dammage){
+			this.armor-=dammage;
+		}else{
+			this.currentHealth-=dammage-this.armor;
+			this.armor=0;
+		}
+		
+	}
 	
 }

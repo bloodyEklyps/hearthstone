@@ -1,6 +1,7 @@
 package state;
 
 import cards.minion.Minion;
+import game.Targetable;
 
 public class MinionSleepState implements MinionState {
 
@@ -12,7 +13,7 @@ public class MinionSleepState implements MinionState {
 	}
 
 	@Override
-	public void attack() {
+	public void attack(Targetable target) {
 		System.out.println("can't attack");
 	}
 	

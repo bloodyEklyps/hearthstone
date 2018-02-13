@@ -14,4 +14,5 @@ public class LifeStealMinion extends MinionDecorator {
 	}
 
 
+
 }
