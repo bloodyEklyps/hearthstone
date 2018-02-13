@@ -37,7 +37,7 @@ public class Player implements Subject{
 		
 		Const.Action response=Action.ATTACK;
 		do{
-			board.display();
+			board.refresh(null);//we don't need to give any data to the board
 			System.out.println("Choisissez votre action : ");
 			System.out.println("1 - Attaque");
 			System.out.println("2 - Jouer une carte ");

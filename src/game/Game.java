@@ -6,15 +6,16 @@ public class Game {
 	 * plus we don't want more than 1 instance of Game */
 	private static Player player1 = null;
 	private static Player player2 = null;
+	private static boolean finished;
 	private int turn;
-	private boolean finished;
+
 
 	public Game(Player player1, Player player2) {
 		super();
 		Game.player1 = player1;
 		Game.player2 = player2;
 		this.turn = 1;
-		this.finished = false;
+		Game.finished = false;
 	}
 
 	public static Player getEnnemy(Player p){
@@ -88,15 +89,15 @@ public class Game {
 	/**
 	 * @param finished the finished to set
 	 */
-	public void setFinished(boolean finished){
-		this.finished = finished;
+	public static void setFinished(boolean finished){
+		Game.finished = finished;
 	}
 	
 	/**
 	 * @return finished
 	 */
 	public boolean isFinished() {
-		return finished;
+		return Game.finished;
 	}
 
 

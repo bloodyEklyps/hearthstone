@@ -86,6 +86,14 @@ public class Board implements Observer{
 
 	@Override
 	public void refresh(Object obj) {
+		for(Minion minion : troops){
+			if(minion.getCurrentHealth() < 0){
+				troops.remove(troops.indexOf(minion));
+			}
+		}
+		if(hero.getCurrentHealth() < 0){
+			Game.setFinished(true);
+		}
 		display();		
 	}
 
