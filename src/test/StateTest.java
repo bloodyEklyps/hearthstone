@@ -1,7 +1,5 @@
 package test;
 
-
-import cards.WarriorCardFactory;
 import cards.minion.common.*;
 import state.MinionAwakeState;
 import state.MinionSleepState;
@@ -10,7 +8,7 @@ public class StateTest {
 
 	public static void main(String[] args) {
 		
-		Minion c1 = (Minion)WarriorCardFactory.getRandomCard();
+		Minion c1 = SanglierBrocheroc.createSanglierBrocheroc();
 		System.out.println("minion created");
 		System.out.println(c1);//Zz
 		c1.attack(null);//can't attack
