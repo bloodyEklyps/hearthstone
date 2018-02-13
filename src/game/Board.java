@@ -1,6 +1,9 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import com.sun.xml.internal.ws.api.pipe.NextAction;
 
 import cards.Card;
 import cards.minion.common.Minion;
@@ -86,12 +89,13 @@ public class Board implements Observer{
 
 	@Override
 	public void refresh(Object obj) {
-		for(Minion minion : troops){
-			if(minion.getCurrentHealth() < 0){
-				troops.remove(troops.indexOf(minion));
+		Iterator<Minion> iteratorTroops=troops.iterator();
+		while(iteratorTroops.hasNext()){
+			if(iteratorTroops.next().getCurrentHealth()<=0){
+				iteratorTroops.remove();
 			}
 		}
-		if(hero.getCurrentHealth() < 0){
+		if(hero.getCurrentHealth() <= 0){
 			Game.setFinished(true);
 		}
 		display();		

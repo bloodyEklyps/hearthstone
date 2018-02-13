@@ -8,6 +8,7 @@ public class ChefDeRaid extends Minion{
 	}
 	
 	public static Minion createChefDeRaid(){
+		
 		return new ChefDeRaid();
 	}
 	
