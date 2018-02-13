@@ -7,12 +7,14 @@ public class Game {
 	private static Player player1 = null;
 	private static Player player2 = null;
 	private int turn;
+	private boolean finished;
 
 	public Game(Player player1, Player player2) {
 		super();
 		Game.player1 = player1;
 		Game.player2 = player2;
-		this.turn = 0;
+		this.turn = 1;
+		this.finished = false;
 	}
 
 	public static Player getEnnemy(Player p){
@@ -28,16 +30,18 @@ public class Game {
 		}
 	}
 
-	public void play(int turn){
-		if(turn==1){
-			player1.pickManyCard(3);
-			player2.pickManyCard(4);
+	public void play(){
+		while(!finished){
+			if(turn==1){
+				player1.pickManyCard(3);
+				player2.pickManyCard(4);
+			}
+			System.out.println("Au tour de "+player1.getName());
+			player1.play(turn);
+			System.out.println("Au tour de "+player2.getName());
+			player2.play(turn);
+			turn++;
 		}
-		System.out.println("Au tour de "+player1.getName());
-		player1.play(turn);
-		System.out.println("Au tour de "+player2.getName());
-		player2.play(turn);
-
 	}
 
 	/**
@@ -80,6 +84,20 @@ public class Game {
 	 */
 	public void setTurn(int turn) {
 		this.turn = turn;
+	}
+	
+	/**
+	 * @param finished the finished to set
+	 */
+	public void setFinished(boolean finished){
+		this.finished = finished;
+	}
+	
+	/**
+	 * @return finished
+	 */
+	public boolean isFinished() {
+		return finished;
 	}
 
 
