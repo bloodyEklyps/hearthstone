@@ -52,7 +52,12 @@ public abstract class Hero implements Targetable{
 	 * @param currentHealth the currentHealth to set
 	 */
 	public void setCurrentHealth(int currentHealth) {
-		this.currentHealth = currentHealth;
+		if(currentHealth>healthMax){
+			this.currentHealth=healthMax;
+		}
+		else{
+			this.currentHealth = currentHealth;
+		}
 	}
 
 	/**

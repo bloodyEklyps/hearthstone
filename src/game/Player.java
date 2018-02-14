@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import cards.Card;
+import cards.minion.common.LifeStealMinion;
 import cards.minion.common.Minion;
 import cards.spell.Spell;
 import game.Const.Action;
@@ -189,6 +190,9 @@ public class Player implements Subject{
 		Minion card=(Minion) board.troops.get(indexCard);
 		System.out.println("quelle carte attaquer?");
 		card.attack(Utils.selectTarget(this, Const.Targets.CHARACTERS, Const.Side.ENEMIES));
+		if(card instanceof LifeStealMinion){
+			getBoard().getHero().setCurrentHealth(getBoard().getHero().getCurrentHealth()+card.getDamage());
+		}
 		card.setState(new MinionSleepState(card));
 		return true; //Si ici problème
 	}
