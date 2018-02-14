@@ -9,9 +9,19 @@ import cards.minion.common.TauntMinion;
 public class Utils {
 
 	public static int getInputInt(){
-		Scanner in = new Scanner(System.in); // Reading from System.in
-		String name = in.nextLine(); // Sca
-		return Integer.parseInt(name);		
+		
+		int number=-1;
+		do{
+			Scanner in = new Scanner(System.in); // Reading from System.in
+			String name = in.nextLine(); // Sca
+			try{
+				number=Integer.parseInt(name);
+			}catch(Exception e){
+				System.out.println("Entrez un entier!!!!");
+			}
+		}while(number<0);
+
+		return number;		
 	}	
 
 	public static String getInputString(){

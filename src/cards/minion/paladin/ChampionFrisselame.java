@@ -12,7 +12,7 @@ public class ChampionFrisselame extends Minion {
 	}
 	
 	public static Minion createChampionFrisselame(){
-		return new LifeStealMinion(new ChargeMinion(new ChampionFrisselame()));
+		return new ChargeMinion(new LifeStealMinion(new ChampionFrisselame()));
 	}
 
 

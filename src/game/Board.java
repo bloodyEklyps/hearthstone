@@ -63,7 +63,7 @@ public class Board implements Observer{
 
 		for(Minion c:troops) {
 			res+="|";
-			res+="Damage:"+c.getCurrentHealth();
+			res+="Damage:"+c.getDamage();
 			for(int i=0;i<13;i++) {
 				res+=" ";
 			}

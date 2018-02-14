@@ -132,7 +132,7 @@ public class Player implements Subject{
 		int choice=0;
 		do{
 			choice=Utils.getInputInt();
-		}while(choice<1||choice>3);
+		}while(choice<1||choice>4);
 		switch (choice) {
 		case 1:
 			return Const.Action.ATTACK;

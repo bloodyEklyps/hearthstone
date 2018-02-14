@@ -29,7 +29,10 @@ public class Main {
 	}
 
 	public static Hero getHero() {
-		int number=Utils.getInputInt();
+		int number=-1;
+		do{
+			number=Utils.getInputInt();
+		}while(number<1||number>4);
 		Hero hero = null;
 		switch (number) {
 		case 1:

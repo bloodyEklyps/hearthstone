@@ -9,7 +9,7 @@ public class LifeStealMinion extends MinionDecorator {
 	}
 	
 	public void attack(Targetable target){
-		this.getDamage();
+		this.getState().attack(target);
 	}
 
 
