@@ -1,4 +1,4 @@
-package cards.minion.common;
+package cards.minion;
 
 public abstract class MinionDecorator extends Minion{
 

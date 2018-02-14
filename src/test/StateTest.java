@@ -1,5 +1,6 @@
 package test;
 
+import cards.minion.Minion;
 import cards.minion.common.*;
 import state.MinionAwakeState;
 import state.MinionSleepState;

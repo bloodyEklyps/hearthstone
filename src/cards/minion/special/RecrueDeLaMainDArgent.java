@@ -1,6 +1,6 @@
 package cards.minion.special;
 
-import cards.minion.common.Minion;
+import cards.minion.Minion;
 
 public class RecrueDeLaMainDArgent extends Minion {
 

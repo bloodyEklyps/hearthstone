@@ -1,5 +1,6 @@
 package cards.minion.common;
 
+import cards.minion.Minion;
 
 public class YetiNoroit extends Minion {
 

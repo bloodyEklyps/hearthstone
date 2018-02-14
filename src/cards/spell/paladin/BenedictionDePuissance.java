@@ -1,6 +1,6 @@
 package cards.spell.paladin;
 
-import cards.minion.common.Minion;
+import cards.minion.Minion;
 import cards.spell.Spell;
 import game.Const;
 import game.Player;

@@ -1,6 +1,6 @@
 package cards.spell.mage;
 
-import cards.minion.common.Minion;
+import cards.minion.Minion;
 import cards.spell.Spell;
 import game.Const;
 import game.Player;
@@ -19,7 +19,7 @@ public class Metamorphose extends Spell{
 
 	@Override
 	public boolean cast(Player caster) {
-		System.out.println("Quelle carte métamorphoser?");
+		System.out.println("Quelle carte mï¿½tamorphoser?");
 		Targetable target = Utils.selectTarget(caster, Const.Targets.MINIONS, Const.Side.ALL);
 		Minion m = ((Minion)target);
 		m.setDamage(1);

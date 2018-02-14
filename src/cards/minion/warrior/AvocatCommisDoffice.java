@@ -1,7 +1,7 @@
 package cards.minion.warrior;
 
-import cards.minion.common.Minion;
-import cards.minion.common.TauntMinion;
+import cards.minion.Minion;
+import cards.minion.TauntMinion;
 
 public class AvocatCommisDoffice extends Minion {
 

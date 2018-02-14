@@ -1,7 +1,7 @@
 package cards.minion.special;
 
-import cards.minion.common.Minion;
-import cards.minion.common.TauntMinion;
+import cards.minion.Minion;
+import cards.minion.TauntMinion;
 
 public class Reflet extends Minion {
 

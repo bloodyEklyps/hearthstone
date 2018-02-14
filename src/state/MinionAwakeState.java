@@ -1,6 +1,6 @@
 package state;
 
-import cards.minion.common.Minion;
+import cards.minion.Minion;
 import game.Targetable;
 
 public class MinionAwakeState implements MinionState {

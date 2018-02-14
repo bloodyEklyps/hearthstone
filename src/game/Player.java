@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import cards.Card;
-import cards.minion.common.LifeStealMinion;
-import cards.minion.common.Minion;
+import cards.minion.LifeStealMinion;
+import cards.minion.Minion;
 import cards.spell.Spell;
 import game.Const.Action;
 import heros.Hero;
-import jdk.nashorn.internal.codegen.CompilerConstants;
 import observer.Observer;
 import observer.Subject;
 import state.MinionAwakeState;

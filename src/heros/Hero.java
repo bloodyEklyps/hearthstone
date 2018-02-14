@@ -1,6 +1,7 @@
 package heros;
 
 import cards.Card;
+import cards.CardFactory;
 import game.Const;
 import game.Player;
 import game.Targetable;
@@ -11,13 +12,15 @@ public abstract class Hero implements Targetable{
 	private int currentHealth;
 	private int healthMax;
 	private Const.Heroes name;
+	private CardFactory cardFactory;
 	
-	public Hero(Const.Heroes name) {
+	public Hero(Const.Heroes name, CardFactory cardFactory) {
 		super();
 		this.name = name;
 		this.armor = 0;
 		this.currentHealth = 30;
 		this.healthMax = 30;
+		this.cardFactory = cardFactory;
 	}
 
 	public abstract void heroPower(Player caster);
@@ -88,7 +91,9 @@ public abstract class Hero implements Targetable{
 		this.name = name;
 	}
 	
-	public abstract Card pickCard();
+	public Card pickCard(){
+		return this.cardFactory.getRandomCard();
+	}
 	
 	@Override
 	public void takeDammage(int dammage) {

@@ -1,5 +1,8 @@
 package test;
 
+import cards.minion.ChargeMinion;
+import cards.minion.LifeStealMinion;
+import cards.minion.Minion;
 import cards.minion.common.*;
 
 public class DecoratorTest {

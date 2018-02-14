@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import cards.Card;
-import cards.minion.common.Minion;
+import cards.minion.Minion;
 import heros.Hero;
 import observer.Observer;
 

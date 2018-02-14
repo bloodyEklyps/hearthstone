@@ -1,5 +1,8 @@
 package cards.minion.common;
 
+import cards.minion.ChargeMinion;
+import cards.minion.Minion;;
+
 public class ChevaucheurDeLoup extends Minion {
 
 	private ChevaucheurDeLoup(){

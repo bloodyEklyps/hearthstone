@@ -1,9 +1,9 @@
 package cards.minion.paladin;
 
 
-import cards.minion.common.ChargeMinion;
-import cards.minion.common.LifeStealMinion;
-import cards.minion.common.Minion;
+import cards.minion.LifeStealMinion;
+import cards.minion.Minion;
+import cards.minion.ChargeMinion;
 
 public class ChampionFrisselame extends Minion {
 
