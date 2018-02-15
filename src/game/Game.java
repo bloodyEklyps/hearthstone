@@ -96,7 +96,7 @@ public class Game {
 	/**
 	 * @return finished
 	 */
-	public boolean isFinished() {
+	public static boolean isFinished() {
 		return Game.finished;
 	}
 

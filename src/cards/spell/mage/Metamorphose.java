@@ -1,6 +1,9 @@
 package cards.spell.mage;
 
+import java.util.ArrayList;
+
 import cards.minion.Minion;
+import cards.minion.special.Mouton;
 import cards.spell.Spell;
 import game.Const;
 import game.Player;
@@ -19,12 +22,11 @@ public class Metamorphose extends Spell{
 
 	@Override
 	public boolean cast(Player caster) {
-		System.out.println("Quelle carte m�tamorphoser?");
+		System.out.println("Quelle carte métamorphoser?");
 		Targetable target = Utils.selectTarget(caster, Const.Targets.MINIONS, Const.Side.ALL);
 		Minion m = ((Minion)target);
-		m.setDamage(1);
-		m.setCurrentHealth(1);
-		m.setHealthMax(1);
+		ArrayList<Minion> troops = caster.getBoard().getTroops();
+		troops.set(troops.indexOf(m), Mouton.createMouton());
 		return true;
 
 

@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import cards.Card;
 import cards.minion.Minion;
+import cards.minion.common.ChefDeRaid;
 import heros.Hero;
 import observer.Observer;
 
@@ -107,7 +108,13 @@ public class Board implements Observer{
 	public void refresh(Object obj) {
 		Iterator<Minion> iteratorTroops=troops.iterator();
 		while(iteratorTroops.hasNext()){
-			if(iteratorTroops.next().getCurrentHealth()<=0){
+			Minion minion = iteratorTroops.next();
+			if(minion.getCurrentHealth()<=0){
+				if (minion instanceof ChefDeRaid){
+					for(Minion m : troops){
+						m.setDamage(m.getDamage()-1);
+					}
+				}
 				iteratorTroops.remove();
 			}
 		}

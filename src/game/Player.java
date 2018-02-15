@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import cards.Card;
 import cards.minion.LifeStealMinion;
 import cards.minion.Minion;
+import cards.minion.common.ChefDeRaid;
 import cards.spell.Spell;
 import game.Const.Action;
 import heros.Hero;
@@ -39,6 +40,9 @@ public class Player implements Subject{
 		do{
 			ennemy.getBoard().refresh(null);
 			board.refresh(null);//we don't need to give any data to the board
+			if(Game.isFinished()){
+				 break;
+			}
 			showHand();
 			System.out.println("Choisissez votre action (mana : "+this.mana+") : ");
 			System.out.println("1 - Attaque");
@@ -53,7 +57,7 @@ public class Player implements Subject{
 			}else if(Action.POWER==response) {
 				power();
 			}
-		}while(response!=Const.Action.SKIP);
+		}while(response!=Const.Action.SKIP || Game.isFinished());
 		for(Card c:board.troops) {
 			((Minion) c).setState(new MinionAwakeState((Minion) c));
 		}
@@ -172,7 +176,18 @@ public class Player implements Subject{
 					return false;
 				}
 			}else if(card instanceof Minion){
-				board.troops.add((Minion) card);
+				Minion minion = ((Minion) card);
+				if (minion instanceof ChefDeRaid){
+					for(Minion m : getBoard().getTroops()){
+						m.setDamage(m.getDamage()+1);
+					}
+				}
+				for(Minion m : getBoard().getTroops()){
+					if(m instanceof ChefDeRaid){
+						minion.setDamage(minion.getDamage()+1);
+					}
+				}
+				board.troops.add(minion);
 				hand.remove(indexCard);
 				mana-=card.getManaCost();
 				return true;
