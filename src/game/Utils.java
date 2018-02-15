@@ -8,7 +8,7 @@ import cards.minion.TauntMinion;
 
 public class Utils {
 
-	public static int getInputInt(){
+	public static int getInputInt(int min, int max){
 		
 		int number=-1;
 		do{
@@ -19,7 +19,7 @@ public class Utils {
 			}catch(Exception e){
 				System.out.println("Entrez un entier!!!!");
 			}
-		}while(number<0);
+		}while(number<min||number>max);
 
 		return number;		
 	}	
@@ -37,7 +37,7 @@ public class Utils {
 		for(int i=0;i<list.size();i++){
 			System.out.println(i+" - "+list.get(i));
 		}
-		int choice = getInputInt();
+		int choice = getInputInt(0,list.size()-1);
 
 		return list.get(choice);
 	}

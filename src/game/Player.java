@@ -130,7 +130,7 @@ public class Player implements Subject{
 		System.out.println("Quelle action");
 		int choice=0;
 		do{
-			choice=Utils.getInputInt();
+			choice=Utils.getInputInt(0,4);
 		}while(choice<1||choice>4);
 		switch (choice) {
 		case 1:
@@ -155,7 +155,7 @@ public class Player implements Subject{
 	public boolean playCard(){
 		System.out.println("Placer quelle carte?");
 		showHand();
-		int indexCard=Utils.getInputInt();
+		int indexCard=Utils.getInputInt(0,hand.size()-1);
 		Card card=hand.get(indexCard);
 
 		if(card.getManaCost()>mana){
@@ -182,16 +182,21 @@ public class Player implements Subject{
 	}
 	
 	public boolean attack(){
-		System.out.println("Quelle carte doit attaquer?");
-		board.display();
-		int indexCard=Utils.getInputInt();
-		Minion card=(Minion) board.troops.get(indexCard);
-		System.out.println("quelle carte attaquer?");
-		card.attack(Utils.selectTarget(this, Const.Targets.CHARACTERS, Const.Side.ENEMIES));
-		if(card instanceof LifeStealMinion){
-			getBoard().getHero().setCurrentHealth(getBoard().getHero().getCurrentHealth()+card.getDamage());
+		if(board.troops.size()>0){
+			System.out.println("Quelle carte doit attaquer?");
+			board.display();
+			int indexCard=Utils.getInputInt(0,board.troops.size()-1);
+			Minion card=(Minion) board.troops.get(indexCard);
+			System.out.println("quelle carte attaquer?");
+			card.attack(Utils.selectTarget(this, Const.Targets.CHARACTERS, Const.Side.ENEMIES));
+			if(card instanceof LifeStealMinion){
+				System.out.println(1);
+				getBoard().getHero().setCurrentHealth(getBoard().getHero().getCurrentHealth()+card.getDamage());
+			}
+			card.setState(new MinionSleepState(card));
+		}else{
+			System.out.println("Aucune carte pour attaquer!");
 		}
-		card.setState(new MinionSleepState(card));
 		return true; //Si ici problème
 	}
 	public void power() {
