@@ -34,7 +34,7 @@ public class Board implements Observer{
 	}
 		
 	public void display(){
-		String res=hero.toString()+"\n";
+		String res=  "                                                                         "+hero.toString()+"\n";
 		res+="|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|\n";
 		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
@@ -46,7 +46,7 @@ public class Board implements Observer{
 				res+=" ";
 			}
 			res+=c.getName();
-			for(int i=0;i<=nbrspace;i++) {
+			for(int i=0;i<nbrspace;i++) {
 				res+=" ";
 			}
 		}
@@ -54,17 +54,17 @@ public class Board implements Observer{
 		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 		for(Minion c:troops) {
 			res+="|";
-			res+="PV:"+c.getCurrentHealth();
-			for(int i=0;i<17;i++) {
-				res+=" ";
-			}
-		}
-		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
-
-		for(Minion c:troops) {
-			res+="|";
-			res+="Damage:"+c.getDamage();
+			res+="Dégats:"+c.getDamage();
 			for(int i=0;i<13;i++) {
+				res+=" ";
+			}
+		}
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+
+		for(Minion c:troops) {
+			res+="|";
+			res+="Vie:"+c.getCurrentHealth();
+			for(int i=0;i<16;i++) {
 				res+=" ";
 			}
 		}

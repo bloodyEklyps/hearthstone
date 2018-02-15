@@ -1,7 +1,6 @@
 package game;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import cards.Card;
 import cards.minion.LifeStealMinion;
