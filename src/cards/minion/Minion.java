@@ -2,6 +2,7 @@ package cards.minion;
 
 import cards.Card;
 import game.Targetable;
+import state.MinionAwakeState;
 import state.MinionSleepState;
 import state.MinionState;
 
@@ -13,15 +14,21 @@ public abstract class Minion extends Card implements Targetable{
 	private MinionState state;
 	private boolean lifesteal;
 	private boolean taunt;
+	private boolean charge;
+	
+	private final MinionSleepState sleepState = new MinionSleepState(this);
+	private final MinionAwakeState awakeState = new MinionAwakeState(this);
 	
 	public Minion(String name, int manaCost, int damage, int healthMax) {
 		super(name, manaCost);
 		this.damage = damage;
 		this.currentHealth = healthMax;
 		this.healthMax = healthMax;
-		this.state = new MinionSleepState(this);
+		
 		this.lifesteal = false;
 		this.taunt = false;
+		this.charge = false;
+		this.state = sleepState;
 	}
 	
 	public Minion(Minion m) {
@@ -29,6 +36,10 @@ public abstract class Minion extends Card implements Targetable{
 		this.damage = m.getDamage();
 		this.currentHealth = m.getCurrentHealth();
 		this.healthMax = m.getHealthMax();
+		
+		this.lifesteal = m.isLifesteal();
+		this.taunt = m.isTaunt();
+		this.charge = m.isCharge();
 		this.state = m.getState();
 	}
 		
@@ -36,8 +47,20 @@ public abstract class Minion extends Card implements Targetable{
 		state.attack(target);
 	}	
 
-	
-	
+	/**
+	 * @return the charge
+	 */
+	public boolean isCharge() {
+		return charge;
+	}
+
+	/**
+	 * @param charge the charge to set
+	 */
+	public void setCharge(boolean charge) {
+		this.charge = charge;
+	}
+
 	/**
 	 * @return the lifesteal
 	 */
@@ -114,12 +137,13 @@ public abstract class Minion extends Card implements Targetable{
 	public MinionState getState() {
 		return state;
 	}
-
-	/**
-	 * @param state the state to set
-	 */
-	public void setState(MinionState state) {
-		this.state = state;
+	
+	public void setStateToSleep(){
+		this.state = sleepState;
+	}
+	
+	public void setStateToAwake(){
+		this.state = awakeState;
 	}
 	
 	@Override

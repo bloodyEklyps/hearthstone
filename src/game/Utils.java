@@ -80,7 +80,7 @@ public class Utils {
 		case MINIONS:
 			targetList.addAll(player.getBoard().getTroops());
 			for(Minion c: player.getBoard().getTroops()) {
-				if(c instanceof TauntMinion) {
+				if(c.isTaunt()) {
 					targetList.removeAll(targetList);
 					targetListTaunt.add(c);
 				}

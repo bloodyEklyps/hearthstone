@@ -3,7 +3,6 @@ package game;
 import java.util.ArrayList;
 
 import cards.Card;
-import cards.minion.LifeStealMinion;
 import cards.minion.Minion;
 import cards.minion.common.ChefDeRaid;
 import cards.spell.Spell;
@@ -11,8 +10,6 @@ import game.Const.Action;
 import heros.Hero;
 import observer.Observer;
 import observer.Subject;
-import state.MinionAwakeState;
-import state.MinionSleepState;
 
 public class Player implements Subject{
 
@@ -34,14 +31,11 @@ public class Player implements Subject{
 	
 	public void play(int turn){
 		pickCard();
-		//Player ennemy = Game.getEnnemy(this);
 		this.mana = (turn >= 10) ? 10 : turn;
 		
 		Const.Action response=Action.ATTACK;
 		do{
 			notifyObservers();
-			//ennemy.getBoard().refresh(null);
-			//board.refresh(null);//we don't need to give any data to the board
 			if(Game.isFinished()){
 				 break;
 			}
@@ -61,7 +55,7 @@ public class Player implements Subject{
 			}
 		}while(response!=Const.Action.SKIP || Game.isFinished());
 		for(Card c:board.troops) {
-			((Minion) c).setState(new MinionAwakeState((Minion) c));
+			((Minion) c).setStateToAwake();
 		}
 			
 	}
@@ -210,7 +204,7 @@ public class Player implements Subject{
 				System.out.println(1);
 				getBoard().getHero().setCurrentHealth(getBoard().getHero().getCurrentHealth()+card.getDamage());
 			}
-			card.setState(new MinionSleepState(card));
+			card.setStateToSleep();
 		}else{
 			System.out.println("Aucune carte pour attaquer!");
 		}

@@ -37,8 +37,6 @@ public class Board implements Observer{
 		String res=  "                                                                         "+hero.toString()+"\n";
 		res+="|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|\n";
 		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
-		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
-		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 		for(Card c:troops) {
 			res+="|";
 			int nbrspace=(21-c.getName().length())/2;
@@ -66,6 +64,42 @@ public class Board implements Observer{
 			res+="Vie:"+c.getCurrentHealth();
 			for(int i=0;i<16;i++) {
 				res+=" ";
+			}
+		}
+		
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+
+		for(Minion c:troops) {
+			if(c.isCharge()){
+				res+="|";
+				res+="Charge";
+				for(int i=0;i<15;i++) {
+					res+=" ";
+				}
+			}
+		}
+		
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+
+		for(Minion c:troops) {
+			if(c.isTaunt()){
+				res+="|";
+				res+="Provocation";
+				for(int i=0;i<10;i++) {
+					res+=" ";
+				}
+			}
+		}
+		
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+
+		for(Minion c:troops) {
+			if(c.isLifesteal()){
+				res+="|";
+				res+="Vol de vie";
+				for(int i=0;i<11;i++) {
+					res+=" ";
+				}
 			}
 		}
 		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
