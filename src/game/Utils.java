@@ -95,7 +95,7 @@ public class Utils {
 			targetList.addAll(player.getBoard().getTroops());
 			targetList.add(player.getBoard().getHero());
 			for(Minion c: player.getBoard().getTroops()) {
-				if(c instanceof TauntMinion) {
+				if(c.isTaunt()) {
 					targetList.removeAll(targetList);
 					targetListTaunt.add(c);
 				}

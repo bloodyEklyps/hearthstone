@@ -11,6 +11,8 @@ public abstract class Minion extends Card implements Targetable{
 	private int currentHealth;
 	private int healthMax;
 	private MinionState state;
+	private boolean lifesteal;
+	private boolean taunt;
 	
 	public Minion(String name, int manaCost, int damage, int healthMax) {
 		super(name, manaCost);
@@ -18,6 +20,8 @@ public abstract class Minion extends Card implements Targetable{
 		this.currentHealth = healthMax;
 		this.healthMax = healthMax;
 		this.state = new MinionSleepState(this);
+		this.lifesteal = false;
+		this.taunt = false;
 	}
 	
 	public Minion(Minion m) {
@@ -31,6 +35,36 @@ public abstract class Minion extends Card implements Targetable{
 	public void attack(Targetable target){
 		state.attack(target);
 	}	
+
+	
+	
+	/**
+	 * @return the lifesteal
+	 */
+	public boolean isLifesteal() {
+		return lifesteal;
+	}
+
+	/**
+	 * @param lifesteal the lifesteal to set
+	 */
+	public void setLifesteal(boolean lifesteal) {
+		this.lifesteal = lifesteal;
+	}
+
+	/**
+	 * @return the taunt
+	 */
+	public boolean isTaunt() {
+		return taunt;
+	}
+
+	/**
+	 * @param taunt the taunt to set
+	 */
+	public void setTaunt(boolean taunt) {
+		this.taunt = taunt;
+	}
 
 	/**
 	 * @return the damage

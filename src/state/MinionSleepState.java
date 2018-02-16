@@ -14,7 +14,7 @@ public class MinionSleepState implements MinionState {
 
 	@Override
 	public void attack(Targetable target) {
-		System.out.println("can't attack");
+		System.out.println("Ce serviteur ne peut pas attaquer");
 	}
 	
 	public String toString(){

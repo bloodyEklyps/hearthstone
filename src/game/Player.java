@@ -206,7 +206,7 @@ public class Player implements Subject{
 			Minion card=(Minion) board.troops.get(indexCard);
 			System.out.println("quelle carte attaquer?");
 			card.attack(Utils.selectTarget(this, Const.Targets.CHARACTERS, Const.Side.ENEMIES));
-			if(card instanceof LifeStealMinion){
+			if(card.isLifesteal()){
 				System.out.println(1);
 				getBoard().getHero().setCurrentHealth(getBoard().getHero().getCurrentHealth()+card.getDamage());
 			}
