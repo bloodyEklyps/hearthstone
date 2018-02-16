@@ -20,7 +20,10 @@ public class MinionAwakeState implements MinionState {
 	}
 	
 	public String toString(){
-		return minion.getName()+":"+minion.getManaCost()+" "+minion.getDamage()+"/"+minion.getCurrentHealth();
+		return minion.getName()+":"+minion.getManaCost()+" "+minion.getDamage()+"/"+minion.getCurrentHealth() 
+		+"("+((minion.isCharge()) ? "Charge" : "")
+		+"("+((minion.isTaunt()) ? "Provocation" : "")
+		+"("+((minion.isLifesteal()) ? "Vol de vie" : "")+ ")";
 	}
 
 }

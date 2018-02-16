@@ -4,7 +4,6 @@ public abstract class Card {
 
 	private int manaCost;
 	private String name;
-	//if it's not a class card => hero = null
 	
 	public Card(String name, int manaCost) {
 		super();

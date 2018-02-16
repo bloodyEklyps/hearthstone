@@ -148,8 +148,11 @@ public abstract class Minion extends Card implements Targetable{
 	
 	@Override
 	public String toString() {
-
-		return this.getName()+" "+this.getManaCost()+"/"+this.getDamage()+"/"+getCurrentHealth();
+		return getName()+":"+getManaCost()+"/"+getDamage()+"/"+getCurrentHealth() 
+		+((isCharge()||isTaunt()||isLifesteal()) ?
+		"("+((isCharge()) ? "Charge," : "")
+		+((isTaunt()) ? "Provocation," : "")
+		+((isLifesteal()) ? "Vol de vie" : "")+ ")" : "");
 
 	}
 	@Override
