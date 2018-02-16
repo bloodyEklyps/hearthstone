@@ -11,5 +11,4 @@ public class Mouton extends Minion {
 	public static Minion createMouton(){
 		return new Mouton();
 	}
-
 }
