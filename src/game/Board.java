@@ -66,43 +66,54 @@ public class Board implements Observer{
 				res+=" ";
 			}
 		}
-		
 		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
-
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 		for(Minion c:troops) {
+			res+="|";
 			if(c.isCharge()){
-				res+="|";
 				res+="Charge";
 				for(int i=0;i<15;i++) {
 					res+=" ";
 				}
+			}else{
+				for(int i=0;i<=20;i++) {
+					res+=" ";
+				}
 			}
-		}
-		
-		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 
+		}
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 		for(Minion c:troops) {
+			res+="|";
 			if(c.isTaunt()){
-				res+="|";
 				res+="Provocation";
 				for(int i=0;i<10;i++) {
 					res+=" ";
 				}
+			}else{
+				for(int i=0;i<=20;i++) {
+					res+=" ";
+				}
 			}
-		}
-		
-		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 
+		}
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
+		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 		for(Minion c:troops) {
+			res+="|";
 			if(c.isLifesteal()){
-				res+="|";
 				res+="Vol de vie";
 				for(int i=0;i<11;i++) {
 					res+=" ";
 				}
+			}else{
+				for(int i=0;i<=20;i++) {
+					res+=" ";
+				}
 			}
+
 		}
-		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 		res+="|----------0----------|----------1----------|----------2----------|----------3----------|----------4----------|----------5----------|----------6----------|\n";
 	System.out.println(res);
