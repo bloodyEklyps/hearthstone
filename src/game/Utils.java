@@ -34,6 +34,11 @@ public class Utils {
 
 		ArrayList<Targetable> list = listTargets(player, type, side);
 		
+		if(list.isEmpty()){
+			return null;
+		}
+		
+		
 		for(int i=0;i<list.size();i++){
 			System.out.println(i+" - "+list.get(i));
 		}

@@ -21,6 +21,9 @@ public class BenedictionDePuissance extends Spell{
 	public boolean cast(Player caster) {
 		System.out.println("Quelle carte beneficiaire?");
 		Targetable target = Utils.selectTarget(caster, Const.Targets.MINIONS, Const.Side.ALL);
+		if(target == null){
+			return false;
+		}
 		Minion m = ((Minion)target);
 		m.setDamage(m.getDamage()+3);
 		return true;

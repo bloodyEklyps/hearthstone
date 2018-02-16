@@ -24,6 +24,9 @@ public class Metamorphose extends Spell{
 	public boolean cast(Player caster) {
 		System.out.println("Quelle carte métamorphoser?");
 		Targetable target = Utils.selectTarget(caster, Const.Targets.MINIONS, Const.Side.ALL);
+		if(target == null){
+			return false;
+		}
 		Minion m = ((Minion)target);
 		ArrayList<Minion> troops = caster.getBoard().getTroops();
 		troops.set(troops.indexOf(m), Mouton.createMouton());
