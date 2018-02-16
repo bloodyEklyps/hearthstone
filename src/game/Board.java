@@ -13,7 +13,6 @@ public class Board implements Observer{
 	
 	private Hero hero;
 	ArrayList<Minion> troops;
-	//private Subject minion; //do i rly need this?
 	private final int BOARDMAXSIZE = 7;
 	
 	public Board(Hero hero) {
@@ -71,7 +70,7 @@ public class Board implements Observer{
 		}
 		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
 		res+="|                     |                     |                     |                     |                     |                     |                     |\n";
-		res+="|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|\n";
+		res+="|----------0----------|----------1----------|----------2----------|----------3----------|----------4----------|----------5----------|----------6----------|\n";
 	System.out.println(res);
 	}
 	
@@ -106,22 +105,28 @@ public class Board implements Observer{
 
 	@Override
 	public void refresh(Object obj) {
-		Iterator<Minion> iteratorTroops=troops.iterator();
+		//obj is always the ennemy board so we can update both boards
+		refreshBoard((Board) obj);		
+		refreshBoard(this);
+	}
+	
+	public void refreshBoard(Board board){
+		Iterator<Minion> iteratorTroops=board.getTroops().iterator();
 		while(iteratorTroops.hasNext()){
 			Minion minion = iteratorTroops.next();
 			if(minion.getCurrentHealth()<=0){
 				if (minion instanceof ChefDeRaid){
-					for(Minion m : troops){
+					for(Minion m : board.getTroops()){
 						m.setDamage(m.getDamage()-1);
 					}
 				}
 				iteratorTroops.remove();
 			}
 		}
-		if(hero.getCurrentHealth() <= 0){
+		if(board.getHero().getCurrentHealth() <= 0){
 			Game.setFinished(true);
 		}
-		display();		
+		board.display();
 	}
 
 }

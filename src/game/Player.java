@@ -29,17 +29,19 @@ public class Player implements Subject{
 		this.name = name;
 		this.mana = 1;
 		this.observers = new ArrayList<Observer>();
+		addObserver(this.board);
 	}
 	
 	public void play(int turn){
 		pickCard();
-		Player ennemy = Game.getEnnemy(this);
+		//Player ennemy = Game.getEnnemy(this);
 		this.mana = (turn >= 10) ? 10 : turn;
 		
 		Const.Action response=Action.ATTACK;
 		do{
-			ennemy.getBoard().refresh(null);
-			board.refresh(null);//we don't need to give any data to the board
+			notifyObservers();
+			//ennemy.getBoard().refresh(null);
+			//board.refresh(null);//we don't need to give any data to the board
 			if(Game.isFinished()){
 				 break;
 			}
@@ -231,7 +233,7 @@ public class Player implements Subject{
 	@Override
 	public void notifyObservers() {
 		for(Observer obs : observers){
-			obs.refresh(null);
+			obs.refresh(Game.getEnnemy(this).getBoard());
 		}
 	}
 }
